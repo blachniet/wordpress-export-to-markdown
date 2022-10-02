@@ -85,13 +85,13 @@ async function loadMarkdownFilePromise(post) {
 		} else if (typeof value === 'string' || value instanceof String) {
 			// single string value
 			const escapedValue = (value || '').replace(/"/g, '\\"');
-			outputValue = `"${escapedValue}"`;
+			outputValue = ` "${escapedValue}"`;
 		} else {
-			outputValue = JSON.stringify(value);
+			outputValue = ' ' + JSON.stringify(value);
 		}
 
 		if (outputValue !== undefined) {
-			output += `${key}: ${outputValue}\n`;
+			output += `${key}:${outputValue}\n`;
 		}
 	});
 
