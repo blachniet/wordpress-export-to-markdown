@@ -80,6 +80,12 @@ const options = [
 		type: 'boolean',
 		description: 'Include aliases in the frontmatter',
 		default: false
+	},
+	{
+		name: 'additional-frontmatter',
+		type: 'json',
+		description: 'Include additional frontmatter (must be a JSON object)',
+		default: ''
 	}
 ];
 
@@ -127,6 +133,10 @@ function extendOptionsData() {
 		folder: {
 			prompt: 'input',
 			coerce: coercePath
+		},
+		json: {
+			prompt: 'input',
+			coerce: coerceJSON
 		}
 	};
 
@@ -192,6 +202,10 @@ function coerceBoolean(value) {
 
 function coercePath(value) {
 	return path.normalize(value);
+}
+
+function coerceJSON(value) {
+	return JSON.parse(value);
 }
 
 function validateFile(value) {

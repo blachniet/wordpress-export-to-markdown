@@ -71,6 +71,7 @@ function collectPosts(data, postTypes, config) {
 					categories: getCategories(post),
 					tags: getTags(post),
 					...(config.includeAliasesFrontmatter ? { aliases: getAliases(post) } : undefined),
+					...(config.additionalFrontmatter ? config.additionalFrontmatter : undefined)
 				},
 				content: translator.getPostContent(post, turndownService, config)
 			}));

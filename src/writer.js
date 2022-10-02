@@ -82,10 +82,12 @@ async function loadMarkdownFilePromise(post) {
 				// array of one or more strings
 				outputValue = value.reduce((list, item) => `${list}\n  - "${item}"`, '');
 			}
-		} else {
+		} else if (typeof value === 'string' || value instanceof String) {
 			// single string value
 			const escapedValue = (value || '').replace(/"/g, '\\"');
 			outputValue = `"${escapedValue}"`;
+		} else {
+			outputValue = JSON.stringify(value);
 		}
 
 		if (outputValue !== undefined) {

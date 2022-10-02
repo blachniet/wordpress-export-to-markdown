@@ -171,6 +171,22 @@ Some WordPress sites make use of a `"page"` post type and/or custom post types. 
 
 When `true`, include a list of `aliases` in the frontmatter of each post. This list contains the original URL paths of the content from the WordPress export. [Hugo uses aliases](https://gohugo.io/content-management/urls/#aliases) to redirect to pages from other URLs. This is useful when the path to the content will be different in the static site vs. the WordPress site.
 
+### Include additional frontmatter (must be a JSON object)?
+
+- Argument: `--additional-frontmatter`
+- Type: `json`
+- Default: `''`
+
+Provide a JSON object to merge with the frontmatter of each post.
+
+For example, if you provided `--additional-frontmatter='{"wordPressExport": true}'` then the following would be appended to the frontmatter:
+
+    wordPressExport: true
+
+You may provide any valid JSON object, but it must be an object. Here's another example with `--additional-frontmatter='{"myCustomProps": { "wordPressExport": true,"tool": "wordpress-export-to-markdown" }}'`
+
+    myCustomProps: {"wordPressExport":true,"tool":"wordpress-export-to-markdown"}
+
 ## Advanced Settings
 
 You can edit [settings.js](https://github.com/lonekorean/wordpress-export-to-markdown/blob/master/src/settings.js) to tweak advanced settings. This includes things like throttling image downloads or customizing the date format in frontmatter.
