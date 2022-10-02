@@ -69,7 +69,8 @@ function collectPosts(data, postTypes, config) {
 					title: getPostTitle(post),
 					date: getPostDate(post),
 					categories: getCategories(post),
-					tags: getTags(post)
+					tags: getTags(post),
+					...(config.includeAliasesFrontmatter ? { aliases: getAliases(post) } : undefined),
 				},
 				content: translator.getPostContent(post, turndownService, config)
 			}));
@@ -128,6 +129,10 @@ function getCategories(post) {
 
 function getTags(post) {
 	return processCategoryTags(post, 'post_tag');
+}
+
+function getAliases(post) {
+	return post.link.map(l => new URL(l).pathname);
 }
 
 function processCategoryTags(post, domain) {

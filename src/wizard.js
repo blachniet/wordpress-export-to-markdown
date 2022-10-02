@@ -74,6 +74,12 @@ const options = [
 		type: 'boolean',
 		description: 'Include custom post types and pages',
 		default: false
+	},
+	{
+		name: 'include-aliases-frontmatter',
+		type: 'boolean',
+		description: 'Include aliases in the frontmatter',
+		default: false
 	}
 ];
 

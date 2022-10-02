@@ -163,6 +163,14 @@ Whether or not to download and save images scraped from `<img>` tags in post bod
 
 Some WordPress sites make use of a `"page"` post type and/or custom post types. Set this to `true` to include these post types in the results. Posts will be organized into post type folders.
 
+### Include aliases in the frontmatter?
+
+- Argument: `--include-aliases-frontmatter`
+- Type: `boolean`
+- Default: `false`
+
+When `true`, include a list of `aliases` in the frontmatter of each post. This list contains the original URL paths of the content from the WordPress export. [Hugo uses aliases](https://gohugo.io/content-management/urls/#aliases) to redirect to pages from other URLs. This is useful when the path to the content will be different in the static site vs. the WordPress site.
+
 ## Advanced Settings
 
 You can edit [settings.js](https://github.com/lonekorean/wordpress-export-to-markdown/blob/master/src/settings.js) to tweak advanced settings. This includes things like throttling image downloads or customizing the date format in frontmatter.
