@@ -80,7 +80,7 @@ async function loadMarkdownFilePromise(post) {
 		if (Array.isArray(value)) {
 			if (value.length > 0) {
 				// array of one or more strings
-				outputValue = value.reduce((list, item) => `${list}\n  - "${item}"`, '');
+				outputValue = value.reduce((list, item) => `${list}\n- "${item}"`, '');
 			}
 		} else if (typeof value === 'string' || value instanceof String) {
 			// single string value
